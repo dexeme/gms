@@ -1,3 +1,3 @@
-/// @description Insert description here
+/// Create Event do objeto controler global
+global.tecla = false;
 global.dialogo = false;
-global.tecla = -1;

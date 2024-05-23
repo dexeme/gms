@@ -1,23 +1,15 @@
-/// @description Insert description here
-if inicializar == false{
-	scr_textos();
-	inicializar = true
-	alarm[0] = 1;
-	}
+// Controle para seleção de opções
+if (keyboard_check_pressed(vk_up)) {
+    selected_option = max(selected_option - 1, 0);
+}
 
-	if pagina < ds_grid_height(texto_grid) - 1{
-		if global.tecla{	
-			alarm[0] = 1;
-			pagina++;
-			caractere = 0;
-	}else{
-		if op_num != 0{
-			op_draw = true;			
-		}else{
-			if global.tecla{
-				global.dialogo = false;
-				instance_destroy();
-			}
-		}
-	}
+if (keyboard_check_pressed(vk_down)) {
+    selected_option = min(selected_option + 1, array_length(npc_options) - 1);
+}
+
+if (keyboard_check_pressed(vk_enter)) {
+    // Ação ao selecionar uma opção
+    var selected_text = npc_options[selected_option];
+    show_message("You selected: " + selected_text);
+    instance_destroy(); // Fecha o diálogo após seleção
 }

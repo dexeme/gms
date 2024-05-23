@@ -1,24 +1,6 @@
-/// @description Diálogo com NPCs
-enum INFOS{
-	TEXTO,
-	RETRATO,
-	LADO,
-	NOME
-
-}
-
-npc_nome = "";
-texto_grid = ds_grid_create(4, 0);
-pagina = 0;
-
-op[0] = "";
-op_resposta[0] = "";
-op_num = 0;
-op_selecionada = 0;
-op_draw = false;
-
-inicializar = false;
-
-caractere = 0;
-alarm[0] = 1;
-
+// Variáveis para o diálogo
+npc_name = "";
+npc_message = "";
+npc_portrait = -1; // Inicializar com -1 para indicar ausência de sprite
+npc_options = [];
+selected_option = 0;

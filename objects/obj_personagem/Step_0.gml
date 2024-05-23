@@ -1,4 +1,5 @@
 /// @description Insert description here
+
 script_execute(estado);
 
 depth = -y;
@@ -21,6 +22,7 @@ if level < 5{
 	
 	if keyboard_check_pressed(ord("H")){
 	    arma = ARMAS.ARCO;
+		
 	if keyboard_check_pressed(ord("J")){
 	    arma = ARMAS.ESPADA;
 			}
@@ -31,11 +33,16 @@ if level < 5{
 	
 }
 
-if distance_to_object(obj_par_npcs) <= 100{
-	if keyboard_check_pressed(ord("F")){
-		var _npc = instance_nearest(x, y, obj_par_npcs);
-		var _dialogo = instance_create_layer(x, y, "Dialogo", obj_dialogo);
-		_dialogo.npc_nome = _npc.nome;
-	}
+
+// Verificar se obj_par_npc existe antes de usá-lo
+if (object_exists(obj_par_npc)) {
+   npc = instance_nearest(x, y, obj_par_npc);
+    if (npc != noone && distance_to_object(npc) < 32 && keyboard_check_pressed(ord("E"))) {
+        if (!npc.mostrando_dialogo) {
+            npc.start_dialog();
+        }
+    }
+} else {
+    show_error("Objeto 'obj_par_npc' não encontrado.", true);
 }
 

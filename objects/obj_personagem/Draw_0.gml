@@ -12,6 +12,7 @@ if alarm[3] > 0{
 	
 	image_alpha += dano_alfa;
 }else{
-	image_alpha = 1;	
+	image_alpha = 1;
 }
 	
+tomardano = true
