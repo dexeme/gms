@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// @description Step do obj_controle
 if instance_exists(obj_dialogo){
 	global.dialogo = true;
 }

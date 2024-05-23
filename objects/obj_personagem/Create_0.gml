@@ -64,3 +64,9 @@ empurrar_dir = 0;
 dano_alfa = -1;
 
 arma = 1;
+
+// Diálogos
+
+player_can_move = true;
+dialog_active = false;
+

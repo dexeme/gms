@@ -30,7 +30,13 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
-  "spriteMaskId": null,
+  "spriteId": {
+    "name": "spr_slime_andando",
+    "path": "sprites/spr_slime_andando/spr_slime_andando.yy",
+  },
+  "spriteMaskId": {
+    "name": "spr_slime_andando",
+    "path": "sprites/spr_slime_andando/spr_slime_andando.yy",
+  },
   "visible": true,
 }

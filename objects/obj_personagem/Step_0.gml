@@ -34,15 +34,17 @@ if level < 5{
 }
 
 
+
 // Verificar se obj_par_npc existe antes de usá-lo
 if (object_exists(obj_par_npc)) {
-   npc = instance_nearest(x, y, obj_par_npc);
-    if (npc != noone && distance_to_object(npc) < 32 && keyboard_check_pressed(ord("E"))) {
-        if (!npc.mostrando_dialogo) {
-            npc.start_dialog();
+   var _npc = instance_nearest(x, y, obj_par_npc);
+    if (_npc  != noone && distance_to_object(_npc) < 32 && keyboard_check_pressed(ord("E"))) {
+		show_debug_message("Clicou E")
+        if (!dialog_active) {
+            _npc .start_dialog();
+			player_can_move = false;
         }
     }
 } else {
     show_error("Objeto 'obj_par_npc' não encontrado.", true);
 }
-

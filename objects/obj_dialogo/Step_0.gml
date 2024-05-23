@@ -1,15 +1,26 @@
-// Controle para seleção de opções
-if (keyboard_check_pressed(vk_up)) {
-    selected_option = max(selected_option - 1, 0);
-}
+// Evento Step do obj_dialogo
+if (obj_personagem.dialog_active) {
+    if (keyboard_check_pressed(vk_up)) {
+        selected_option--;
+        if (selected_option < 0) {
+            selected_option = array_length(npc_options) - 1;
+        }
+    }
+    if (keyboard_check_pressed(vk_down)) {
+        selected_option++;
+        if (selected_option >= array_length(npc_options)) {
+            selected_option = 0;
+        }
+    }
 
-if (keyboard_check_pressed(vk_down)) {
-    selected_option = min(selected_option + 1, array_length(npc_options) - 1);
-}
+    if (keyboard_check_pressed(vk_enter)) {
+        var selected_text = npc_options[selected_option];
+        show_message("Você selecionou: " + selected_text);
 
-if (keyboard_check_pressed(vk_enter)) {
-    // Ação ao selecionar uma opção
-    var selected_text = npc_options[selected_option];
-    show_message("You selected: " + selected_text);
-    instance_destroy(); // Fecha o diálogo após seleção
+        // Marcar o diálogo como completo e permitir movimento
+        obj_personagem.dialog_active = false;
+        obj_personagem.player_can_move = true;
+
+        instance_destroy(); // Destruir o objeto de diálogo após a seleção
+    }
 }
